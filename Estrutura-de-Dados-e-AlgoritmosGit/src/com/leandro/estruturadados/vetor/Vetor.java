@@ -1,5 +1,7 @@
 package com.leandro.estruturadados.vetor;
 
+import java.util.Arrays;
+
 public class Vetor {
 	
 	private String[] elementos;
@@ -39,5 +41,29 @@ public class Vetor {
 		System.out.println("Falha: não há mais espaço para adicionar novo elemento.");
 		return false;
 		
+	}
+	
+	public int tamanho() {
+		return this.tamanho;
+	}
+	
+	@Override
+	public String toString() {
+		
+		StringBuilder s = new StringBuilder();
+		s.append("[");
+		
+		for(int i = 0; i < this.tamanho - 1; i++) {
+			s.append(this.elementos[i]);
+			s.append(",");
+		}
+		
+		if(this.tamanho > 0) {
+			s.append(this.elementos[this.tamanho - 1]);
+		}
+		
+		s.append("]");
+		
+		return s.toString();
 	}
 }
