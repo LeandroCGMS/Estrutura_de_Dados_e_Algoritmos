@@ -1,37 +1,16 @@
 package com.leandro.estruturadados.vetor;
-
 import java.util.Arrays;
 
-public class Vetor {
-	
-	private String[] elementos;
+public class VetorObjetos {
+	private Object[] elementos;
 	private int tamanho;
 	
-	public Vetor(int capacidade) {
-		this.elementos =  new String[capacidade];
+	public VetorObjetos(int capacidade) {
+		this.elementos =  new Object[capacidade];
 		this.tamanho = 0;
 	}
 	
-	/*public void adiciona(String elemento) {
-		for(int i = 0; i < this.elementos.length; i++) {
-			if(this.elementos == null) {
-				this.elementos[i] = elemento;
-				break;
-			}
-		}
-	}*/
-	
-	/*public void adiciona(String elemento) throws Exception {
-		if(this.tamanho < this.elementos.length) {
-			this.elementos[this.tamanho] = elemento;
-			this.tamanho++;
-		} else {
-			throw new Exception("Vetor já está cheio. Não é possível adicionar mais elementos.");
-		}
-		
-	}*/
-	
-	public boolean adiciona(String elemento) {
+	public boolean adiciona(Object elemento) {
 		this.aumentaCapacidade();
 		if(this.tamanho < this.elementos.length) {
 			this.elementos[this.tamanho] = elemento;
@@ -44,7 +23,7 @@ public class Vetor {
 		
 	}
 	
-	public boolean adiciona(int posicao, String elemento) {
+	public boolean adiciona(int posicao, Object elemento) {
 		
 		if(!(posicao >= 0 && posicao < tamanho)) {
 			throw new IllegalArgumentException("Posicao inválida.");
@@ -65,7 +44,7 @@ public class Vetor {
 	private void aumentaCapacidade() {
 		
 		if(this.tamanho == this.elementos.length ) {
-			String[] elementosNovos = new String[this.elementos.length * 2];
+			Object[] elementosNovos = new Object[this.elementos.length * 2];
 			for(int i = 0; i < elementos.length; i++) {
 				elementosNovos[i] = elementos[i];
 			}
@@ -74,7 +53,7 @@ public class Vetor {
 		
 	}
 	
-	public String busca(int posicao) {
+	public Object busca(int posicao) {
 		
 		if(!(posicao >= 0 && posicao < tamanho)) {
 			throw new IllegalArgumentException("Posicao inválida.");
@@ -83,9 +62,9 @@ public class Vetor {
 		return this.elementos[posicao];
 	}
 	
-	public int busca(String elemento) {
+	public int busca(Object elemento) {
 		for(int i = 0; i < this.tamanho; i++) {
-			if(this.elementos[i].equalsIgnoreCase(elemento)) {
+			if(this.elementos[i].equals(elemento) ) {
 				return i;
 			}
 		}
