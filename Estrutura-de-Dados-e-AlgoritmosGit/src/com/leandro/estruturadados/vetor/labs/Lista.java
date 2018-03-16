@@ -86,6 +86,16 @@ public class Lista<T> {
 		return false;
 	}
 	
+	public int ultimoIndice(T elemento) {
+		int ultimoIndice = -1;
+		for(int i = 0; i < this.tamanho; i++) {
+			if(this.elementos[i].equals(elemento)){
+				ultimoIndice = i;
+			}
+		}
+		return ultimoIndice;
+	}
+	
 	// B D E F F -> posição a ser removida é 1 (G)
 	// 0 1 2 3 4 -> tamanho é 5
 	// vetor[1] = vetor[2]
