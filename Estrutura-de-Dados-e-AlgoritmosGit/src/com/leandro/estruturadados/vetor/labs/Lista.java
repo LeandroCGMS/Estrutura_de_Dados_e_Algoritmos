@@ -78,12 +78,8 @@ public class Lista<T> {
 	}
 	
 	public boolean contem(T elemento) {
-		for(int i = 0; i < this.tamanho; i++) {
-			if(this.elementos[i].equals(elemento)) {
-				return true;
-			}
-		}
-		return false;
+		return busca(elemento) > -1; // >=0
+		
 	}
 	
 	public int ultimoIndice(T elemento) {
