@@ -178,6 +178,17 @@ public class Lista<T> {
 		return retorno;
 	}
 	
+	public void limpar() {
+		if(this.tamanho == 0) {
+			
+		} else {
+			for(int i = 0; i < this.tamanho; i++) {
+				this.elementos[i] = null;
+			}
+			this.tamanho = 0;
+		}
+	}
+	
 	@Override
 	public String toString() {
 		
