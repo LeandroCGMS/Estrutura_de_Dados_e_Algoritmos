@@ -115,6 +115,40 @@ public class Lista<T> {
 		return this.tamanho;
 	}
 	
+	public int remove(T elemento) {
+		
+		int ultimoIndice = -1;
+		int contOcorrenciaElemento = 0;
+		
+		for(int i = 0; i < this.tamanho; i++) {
+			
+			if( this.elementos[i].equals(elemento)){
+				contOcorrenciaElemento++;
+				
+			}
+		}
+		
+		if(contOcorrenciaElemento == 0) {
+			return -1;
+		}
+		
+		for(int i = 0; i < this.tamanho; i++) {
+			
+			if(this.elementos[i].equals(elemento)){
+				ultimoIndice = i;
+				
+				for(int j = ultimoIndice; j < this.tamanho - 1; j++) {
+					
+					this.elementos[j] = this.elementos[j+1];
+				}
+				
+			}
+			this.tamanho--;
+		}
+		return ultimoIndice;
+		
+	}
+	
 	@Override
 	public String toString() {
 		
