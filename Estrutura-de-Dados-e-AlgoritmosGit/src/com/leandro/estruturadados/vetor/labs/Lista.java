@@ -145,7 +145,7 @@ public class Lista<T> {
 			}
 			this.tamanho--;
 		}
-		return ultimoIndice;
+		return contOcorrenciaElemento;
 		
 	}
 	

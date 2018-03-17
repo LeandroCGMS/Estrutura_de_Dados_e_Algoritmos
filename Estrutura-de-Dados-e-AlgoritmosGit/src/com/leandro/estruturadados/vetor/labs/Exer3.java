@@ -37,10 +37,9 @@ Lista<Contato> lista = new Lista<Contato>(3);
 		
 		System.out.println("Removendo o contato c6 quem também é o c3");
 		
-		if(lista.remove(c6) == -1 ) {
-			System.out.println("Elemento não existe para ser excluído.");
-		}
-		
+		System.out.println(lista.remove(c6) + " registros removidos que coincidem em, "
+				+ "pelo menos, um campo.");
+				
 		System.out.println(lista);
 
 	}
