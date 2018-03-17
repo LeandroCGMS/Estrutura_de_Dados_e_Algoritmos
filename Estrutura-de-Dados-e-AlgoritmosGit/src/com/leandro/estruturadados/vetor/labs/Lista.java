@@ -83,13 +83,12 @@ public class Lista<T> {
 	}
 	
 	public int ultimoIndice(T elemento) {
-		int ultimoIndice = -1;
-		for(int i = 0; i < this.tamanho; i++) {
+		for(int i = this.tamanho-1; i >= 0 ; i++) {
 			if(this.elementos[i].equals(elemento)){
-				ultimoIndice = i;
+				return i;
 			}
 		}
-		return ultimoIndice;
+		return -1;
 	}
 	
 	// B D E F F -> posição a ser removida é 1 (G)
