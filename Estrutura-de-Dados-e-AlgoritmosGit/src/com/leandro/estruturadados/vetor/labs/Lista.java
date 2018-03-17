@@ -145,33 +145,8 @@ public class Lista<T> {
 		
 	}
 	
-	public String obtem(T elemento) {
-		int posicoes = 0;
-		for(int i = 0; i < this.tamanho; i++) {
-			if(this.elementos[i].equals(elemento) ) {
-				posicoes++;
-			}
-		}
-		int[] registros =  new int[posicoes];
-		String retorno = "[";
-		int j = 0;
-		for(int i = 0; i < this.tamanho; i++) {
-			if(this.elementos[i].equals(elemento) ) {
-				registros[j] = i;
-				retorno += registros[j];
-				if(j==posicoes -1) {
-					
-				} else {
-					retorno += ", ";
-				}
-				
-				j++;
-				
-			}
-			
-		}
-		retorno += "]";
-		return retorno;
+	public T obtem(int posicao) {
+		return this.elementos[posicao];
 	}
 	
 	public void limpar() {
