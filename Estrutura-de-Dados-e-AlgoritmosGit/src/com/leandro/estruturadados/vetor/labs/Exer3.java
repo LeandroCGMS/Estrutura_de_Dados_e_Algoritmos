@@ -1,7 +1,5 @@
 package com.leandro.estruturadados.vetor.labs;
 
-import java.util.concurrent.CompletableFuture.AsynchronousCompletionTask;
-
 import com.leandro.estruturadados.vetor.teste.Contato;
 
 public class Exer3 {
