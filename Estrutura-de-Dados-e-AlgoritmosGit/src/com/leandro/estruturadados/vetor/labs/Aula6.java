@@ -92,7 +92,7 @@ public class Aula6 {
 		System.out.println("Depois de remover o índice 29 que é o contato 30, essa é a nova lista de Contatos: ");
 		System.out.println(lista);
 		
-		System.out.println("O método obtem() retornar a seguinte string para o contato c17: -> " + lista.obtem(c17) + " <-");
+		System.out.println("O método obtem() retorna o seguinte elemento para a posição 17: -> " + lista.obtem(17) + " <-");
 		
 		System.out.println("Vou usar, agora, o método limpar()");
 		lista.limpar();

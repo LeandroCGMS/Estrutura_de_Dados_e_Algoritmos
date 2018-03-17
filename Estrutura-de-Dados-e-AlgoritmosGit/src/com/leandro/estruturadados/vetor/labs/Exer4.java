@@ -25,8 +25,8 @@ public class Exer4 {
 		lista.adiciona(c6);
 			
 
-			System.out.println("Obtendo posições de registros iguais ao c3: "
-					+ lista.obtem(c3));
+			System.out.println("Obtendo o elemento da posição 3: "
+					+ lista.obtem(3));
 			
 
 	}
