@@ -2,7 +2,7 @@ package com.leandro.estruturadados.vetor.labs;
 
 import com.leandro.estruturadados.vetor.teste.Contato;
 
-public class Aula6 {
+public class Exer6 {
 
 	public static void main(String[] args) {
 		
