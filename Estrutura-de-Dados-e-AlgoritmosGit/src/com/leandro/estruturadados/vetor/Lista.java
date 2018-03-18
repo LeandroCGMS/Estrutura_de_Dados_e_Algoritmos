@@ -21,7 +21,7 @@ public class Lista<T> {
 		if(this.tamanho < this.elementos.length) {
 			this.elementos[this.tamanho] = elemento;
 			this.tamanho++;
-			System.out.println("Elemento adicionado com sucesso");
+			
 			return true;
 		} 
 		System.out.println("Falha: não há mais espaço para adicionar novo elemento.");
