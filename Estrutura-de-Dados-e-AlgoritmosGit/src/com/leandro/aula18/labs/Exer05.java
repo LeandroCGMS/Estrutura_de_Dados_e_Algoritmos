@@ -41,7 +41,7 @@ public class Exer05 {
 				palavraString = palavraString.toUpperCase();
 				palavraString = palavraString.replaceAll(" ", "");
 				palavra = palavraString.toCharArray();
-				stack.push(palavra);
+				stack.push(palavra); //ok
 			}
 			
 			
