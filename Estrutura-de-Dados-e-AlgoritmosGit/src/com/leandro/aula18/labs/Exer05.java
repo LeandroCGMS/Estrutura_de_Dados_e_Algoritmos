@@ -31,6 +31,7 @@ public class Exer05 {
 				System.out.println("Entre com a palavra, número ou frase para saber se "
 						+ "é um Palíndromo.");
 				String palavraString = scan.nextLine();
+				palavraString = palavraString.toUpperCase();
 				palavraString = palavraString.replaceAll(" ", "");
 				palavra = palavraString.toCharArray();
 				stack.push(palavra);
