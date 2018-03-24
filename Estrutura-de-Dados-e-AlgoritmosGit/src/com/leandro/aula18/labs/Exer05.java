@@ -4,9 +4,11 @@ import java.util.Stack;
 
 public class Exer05 {
 	private static Stack<char[]> stack = new Stack<char[]>();
+	private static Stack<String> palavras = new Stack<String>();
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
+		System.out.println("\t\t\tVerificador de Palíndromos\n\t\t\tEvite pontuação e acentos, caso seja(m) frase(s).");
 		
 		
 		
@@ -32,6 +34,9 @@ public class Exer05 {
 						+ "é um Palíndromo.");
 				String palavraString = scan.nextLine();
 				palavraString = palavraString.toUpperCase();
+				
+				palavras.push(palavraString);
+				
 				palavraString = palavraString.replaceAll(" ", "");
 				palavra = palavraString.toCharArray();
 				stack.push(palavra);
@@ -40,6 +45,7 @@ public class Exer05 {
 						+ "saber se é um Palíndromo.");
 				String palavraString = scan.nextLine();
 				palavraString = palavraString.toUpperCase();
+				palavras.push(palavraString);
 				palavraString = palavraString.replaceAll(" ", "");
 				palavra = palavraString.toCharArray();
 				stack.push(palavra); //ok---
@@ -58,25 +64,26 @@ public class Exer05 {
 		for(int i = 0; i < stack.size(); i++) {
 						
 			for(int j = 0, k = stack.get(i).length - 1; j < stack.get(i).length / 2; j++, k--) {
+								
 				if(stack.get(i)[j] == stack.get(i)[k] ) { // OSSO: se O é igual a O, se S é igual a S
 					contDigitosIguais++; // igual a 2
 				}
 			}
 			if(contDigitosIguais == stack.get(i).length / 2) {
-				String elementoChar = "";
-				for(int k = 0; k < stack.get(i).length; k++) {
-					
-					System.out.print(stack.get(i)[k]);
-				}
-				System.out.print(" é um Palíndromo.\n");
-			} else {
-				String elementoChar = "";
-				for(int k = 0; k < stack.get(i).length; k++) {
-					
-					System.out.print(stack.get(i)[k]);
-				}
 				
-				System.out.println(" NÃO é um Palíndromo.\n");
+				/*for(int k = 0; k < stack.get(i).length; k++) {
+					
+					System.out.print(stack.get(i)[k]);
+				}*/
+				System.out.print(palavras.get(i) + " é um Palíndromo.\n");
+			} else {
+				
+				/*for(int k = 0; k < stack.get(i).length; k++) {
+					
+					System.out.print(stack.get(i)[k]);
+				}*/
+				
+				System.out.println(palavras.get(i) + " NÃO é um Palíndromo.\n");
 			}
 			contDigitosIguais = 0;
 		}
