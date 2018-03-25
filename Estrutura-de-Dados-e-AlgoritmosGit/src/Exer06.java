@@ -4,12 +4,12 @@ import java.util.Stack;
 public class Exer06 {
 	private static Stack<char[]> expressoes = new Stack<char[]>();
 	private static Scanner scan = new Scanner(System.in);
+	
 
 	public static void main(String[] args) {
 
 		boolean expressaoValida = false;
-		int contAbreParenteses = 0;
-		int contFechaParenteses = 0;
+
 		while(!expressaoValida) {
 			System.out.println("\t\t\tDesafio dos Simbolos Balanceados"
 					+ "\n\tDigite uma expressão matemática que use parênteses.");
@@ -21,22 +21,11 @@ public class Exer06 {
 			}
 			char[] expressaoDaVez = expressao.toCharArray();
 			expressoes.push(expressaoDaVez);
-			for(int i = 0; i < expressaoDaVez.length; i++) {
-				if(expressaoDaVez[i] == '(') {
-					contAbreParenteses++;
-				}
-				if(expressaoDaVez[i] == ')') {
-					contFechaParenteses++;
-				}
-			}
+			
 		}
 
-		if(contAbreParenteses == contFechaParenteses) {
-			System.out.println("A expressão digitada, com relação ao uso dos parênteses, é válida.");
-		} else {
-			System.out.println("A expressão digitada, com relação ao uso dos parênteses, é inválida.");
-		}
 		
+
 		voltarAoMenu();
 
 
@@ -50,12 +39,13 @@ public class Exer06 {
 		while(!opValida) {
 			System.out.println("1) Digitar outra expressão;"
 					+ "\n2) Exibir toda(s) a(s) expressão(ões) digitadas;"
-					+ "\n3) Sair.");
+					+ "\n3) Verificar qual(is) expressão(ões) são válidos quanto ao uso dos parênteses."
+					+ "\n4) Sair.");
 			String opcao = scan.nextLine();
 
 			try {
 				op = Integer.parseInt(opcao);
-				if(op >  0 && op <= 3) {
+				if(op >  0 && op <= 4) {
 					opValida = true;
 				} else {
 					throw new Exception();
@@ -81,6 +71,44 @@ public class Exer06 {
 			voltarAoMenu();
 			break;
 		case 3:
+			int contAbreParenteses = 0;
+			int contFechaParenteses = 0;
+			int posAbreParenteses = 0;
+			int posFechaParenteses = 0;
+			for(int i = 0; i < expressoes.size(); i++) {
+				for(int j = 0; j < expressoes.get(i).length; j++) {
+					System.out.print(expressoes.get(i)[j]);
+					if(expressoes.get(i)[j] == ')') {
+						contFechaParenteses++;
+						if(contFechaParenteses == 1) {
+							// AQUI VAI ESTAR O PULO DO GATO
+							posFechaParenteses = j;
+						}
+					} else if(expressoes.get(i)[j] == '(') {
+						contAbreParenteses++;
+						if(contAbreParenteses == 1) {
+							// AQUI VAI ESTAR O PULO DO GATO
+							posAbreParenteses = j;
+							
+						}
+					}
+					
+					if(j == expressoes.get(i).length -1) {
+						// ESCOPO PARA DAR RESPOSTA SE ESTÁ CERTO OU NÃO
+						if(posFechaParenteses < posAbreParenteses || contFechaParenteses != contAbreParenteses) {
+							System.out.println(" => com relação ao uso dos parênteses, é inválida.");
+						} else {
+							System.out.println(" => com relação ao uso dos parênteses, é válida.");
+						}
+					}
+					
+				}
+				
+				System.out.println("\n");
+			}
+			voltarAoMenu();
+			break;
+		case 4:
 			System.exit(0);
 			break;
 
