@@ -72,12 +72,14 @@ public class Exer06 {
 			voltarAoMenu();
 			break;
 		case 3:
-			int contAbreParenteses = 0;
-			int contFechaParenteses = 0;
-			int posAbreParenteses = 0;
-			int posFechaParenteses = 0;
+			
 			for(int i = 0; i < expressoes.size(); i++) {
+				int contAbreParenteses = 0;
+				int contFechaParenteses = 0;
+				int posAbreParenteses = 0;
+				int posFechaParenteses = 0;
 				for(int j = 0; j < expressoes.get(i).length; j++) {
+					
 					System.out.print(expressoes.get(i)[j]);
 					if(expressoes.get(i)[j] == ')') {
 						contFechaParenteses++;
@@ -96,13 +98,14 @@ public class Exer06 {
 					
 					if(j == expressoes.get(i).length -1) {
 						// ESCOPO PARA DAR RESPOSTA SE ESTÁ CERTO OU NÃO
-						if(posFechaParenteses < posAbreParenteses || contFechaParenteses != contAbreParenteses) {
-							System.out.println(" => com relação ao uso dos parênteses, é inválida.");
-						} else {
-							System.out.println(" => com relação ao uso dos parênteses, é válida.");
-						}
+						
 					}
 					
+				}
+				if(posFechaParenteses < posAbreParenteses || contFechaParenteses != contAbreParenteses) {
+					System.out.println(" => com relação ao uso dos parênteses, é inválida.");
+				} else {
+					System.out.println(" => com relação ao uso dos parênteses, é válida.");
 				}
 				
 				System.out.println("\n");
