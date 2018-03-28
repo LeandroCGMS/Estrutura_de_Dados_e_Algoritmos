@@ -26,7 +26,10 @@ public class Fila<T> extends EstruturaEstatica<T>{
 	}
 	
 	public T desenfileira() {
-		for(int i = 0; i < this.tamanho() - 1; i++) { // 1 2 3  4 na passagem 0, o 1 passa a ser 2, o 2 passa a ser 3 e o 3 passa a ser 4
+		if(this.estaVazia()) {
+			return null;
+		}
+		for(int i = 0; i < this.tamanho() - 1; i++) { 
 			this.elementos[i] = elementos[i+1];
 		}
 		this.tamanho--;
