@@ -29,11 +29,12 @@ public class Fila<T> extends EstruturaEstatica<T>{
 		if(this.estaVazia()) {
 			return null;
 		}
+		T elementoDesenfileirado = this.elementos[0];
 		for(int i = 0; i < this.tamanho() - 1; i++) { 
 			this.elementos[i] = elementos[i+1];
 		}
 		this.tamanho--;
-		return this.elementos[0];
+		return elementoDesenfileirado;
 	}
 	
 }
