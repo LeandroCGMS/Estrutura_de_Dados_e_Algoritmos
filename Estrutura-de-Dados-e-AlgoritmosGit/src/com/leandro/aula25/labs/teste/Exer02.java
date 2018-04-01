@@ -1,8 +1,11 @@
-package com.leandro.aula25.labs;
+package com.leandro.aula25.labs.teste;
 
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Scanner;
+
+import com.leandro.aula25.labs.Senha;
+import com.leandro.aula25.labs.TipoSenha;
 
 public class Exer02 {
 	private static Scanner scan = new Scanner(System.in);
@@ -23,7 +26,10 @@ public class Exer02 {
 			}
 			
 		}
+		int numSenha = 0;
 		for(int i = 0; i < qtdSenhas; i++) {
+			
+			numSenha++;
 			int senhaTipo = 0;
 			
 			TipoSenha senha = null;
@@ -50,6 +56,7 @@ public class Exer02 {
 				
 			}
 			Senha senhaDaVez = new Senha();
+			senhaDaVez.setNumSenha(numSenha);
 			senhaDaVez.setTipoSenha(senha);
 			
 			senhas.add(senhaDaVez);
