@@ -4,9 +4,12 @@ import java.util.PriorityQueue;
 import java.util.Scanner;
 import java.util.concurrent.CompletableFuture.AsynchronousCompletionTask;
 
+import com.leandro.estruturadados.fila.FilaComPrioridade;
+
 public class Exer02 {
 	private static Scanner scan = new Scanner(System.in);
-	private static PriorityQueue<Senha> senhas = new PriorityQueue<>();
+	private static FilaComPrioridade<Senha> senhasPrioritarias = new FilaComPrioridade<>();
+	private static FilaComPrioridade<Senha> senhasNormais = new FilaComPrioridade<>();
 	private static Senha senhasDesorganizadas[];
 
 	public static void main(String[] args) {
@@ -57,20 +60,38 @@ public class Exer02 {
 			if(tipo == 1) {
 				Senha senhaPrioritaria = new Senha(TipoSenha.Prioritaria, (i+1));
 				//senhas.add(senhaPrioritaria);
-				senhasDesorganizadas[i] = senhaPrioritaria;
+				//senhasDesorganizadas[i] = senhaPrioritaria;
+				senhasPrioritarias.enfileira(senhaPrioritaria);
 			} else {
 				Senha senhaNormal = new Senha(TipoSenha.Normal, (i+1));
 				//senhas.add(senhaNormal);
-				senhasDesorganizadas[i] = senhaNormal;
+				//senhasDesorganizadas[i] = senhaNormal;
+				senhasNormais.enfileira(senhaNormal);
+				
 			}
 
 		}
 		
-		for(int i = 0; i < senhasDesorganizadas.length; i++) {
-			senhas.add(senhasDesorganizadas[i]);
-		}
+		System.out.println(senhasNormais);
+		System.out.println(senhasPrioritarias);
+		scan.nextLine();
 		
-		System.out.println(senhas);
+		int cont = 0;
+		while(!senhasNormais.estaVazia()) {
+			cont++;
+			if(cont % 4 == 0 && !senhasPrioritarias.estaVazia()) {
+				System.out.println(senhasNormais.desenfileira());
+			} else if (senhasPrioritarias.estaVazia()){
+				System.out.println(senhasNormais.desenfileira());
+			} else {
+				System.out.println(senhasPrioritarias.desenfileira());
+			}
+			
+			
+			
+		}
+		/*
+		System.out.println(senhas);*/
 		
 		
 
