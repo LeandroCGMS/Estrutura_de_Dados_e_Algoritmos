@@ -72,9 +72,9 @@ public class Exer02 {
 
 		}
 		
-		System.out.println(senhasNormais);
+		/*System.out.println(senhasNormais);
 		System.out.println(senhasPrioritarias);
-		scan.nextLine();
+		scan.nextLine();*/
 		
 		int cont = 0;
 		while(!senhasNormais.estaVazia()) {
