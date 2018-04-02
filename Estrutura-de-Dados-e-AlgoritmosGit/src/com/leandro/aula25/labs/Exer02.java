@@ -77,12 +77,14 @@ public class Exer02 {
 		scan.nextLine();*/
 		
 		int cont = 0;
-		while(!senhasNormais.estaVazia()) {
+		while(!senhasNormais.estaVazia() || !senhasPrioritarias.estaVazia()) {
 			cont++;
-			if(cont % 4 == 0 && !senhasPrioritarias.estaVazia()) {
+			if(cont % 4 == 0 && !senhasNormais.estaVazia()) {
 				System.out.println(senhasNormais.desenfileira());
 			} else if (senhasPrioritarias.estaVazia()){
 				System.out.println(senhasNormais.desenfileira());
+			} else if (cont % 4 != 0 && senhasNormais.estaVazia()){
+				System.out.println(senhasPrioritarias.desenfileira());
 			} else {
 				System.out.println(senhasPrioritarias.desenfileira());
 			}
