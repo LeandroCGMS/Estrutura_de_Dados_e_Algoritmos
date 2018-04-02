@@ -4,10 +4,13 @@ public class Senha extends Thread {
 	private int numSenha;
 	private TipoSenha tipoSenha;
 			
-	public Senha(int numSenha, TipoSenha TipoSenha) {
+	public Senha(int numSenha, TipoSenha TipoSenha, boolean inicia) {
 		this.numSenha = numSenha;
 		this.tipoSenha = TipoSenha;
-		start();
+		if(inicia) {
+			start();
+		}
+		
 	}	
 	
 	public void run() {
@@ -16,7 +19,7 @@ public class Senha extends Thread {
 			
 		
 			Thread.sleep(5000);
-			System.out.println("\nSenha: " + this.numSenha + ", tipo: " + this.tipoSenha);
+			
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -39,7 +42,7 @@ public class Senha extends Thread {
 				e.printStackTrace();
 			}
 		}
-		
+		System.out.println("\nSenha: " + this.numSenha + ", tipo: " + this.tipoSenha);
 		System.out.println("Paciente atendido.\n");
 		
 	}
